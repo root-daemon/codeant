@@ -1,11 +1,35 @@
 "use client";
 
+import { useState } from "react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function LoginPage() {
+  const [loginType, setLoginType] = useState<"saas" | "self-hosted">("saas");
+
+  const loginOptions = {
+    saas: [
+      { src: "/github.png", alt: "GitHub Logo", text: "Sign in with GitHub" },
+      {
+        src: "/bitbucket.png",
+        alt: "Bitbucket Logo",
+        text: "Sign in with Bitbucket",
+      },
+      {
+        src: "/azure.png",
+        alt: "Azure DevOps Logo",
+        text: "Sign in with Azure DevOps",
+      },
+      { src: "/gitlab.png", alt: "GitLab Logo", text: "Sign in with GitLab" },
+    ],
+    "self-hosted": [
+      { src: "/gitlab.png", alt: "GitLab Logo", text: "Sign in with GitLab" },
+      { src: "/key.png", alt: "SSO Logo", text: "Sign in with SSO" },
+    ],
+  };
+
   return (
     <div className="min-h-screen grid md:grid-cols-2 gap-8 py-4 md:p-8">
       {/* Stats Section */}
@@ -15,9 +39,10 @@ export default function LoginPage() {
             <Image
               src="/card-logo.png"
               alt="CodeAnt AI Logo"
-              width={16}
-              height={16}
+              width={50}
+              height={50}
               className="mb-2"
+              priority
             />
             <h2 className="font-semibold mb-4">
               AI to Detect & Autofix Bad Code
@@ -58,6 +83,7 @@ export default function LoginPage() {
         </div>
       </div>
 
+      {/* Login Section */}
       <div className="flex items-center justify-center">
         <div className="w-full max-w-md space-y-8">
           <div className="text-center">
@@ -67,21 +93,26 @@ export default function LoginPage() {
               width={100}
               height={100}
               className="mx-auto mb-4"
+              priority
             />
             <h1 className="text-2xl font-semibold mb-8">
               Welcome to CodeAnt AI
             </h1>
           </div>
 
+          {/* Radio Group for Login Type */}
           <RadioGroup
-            defaultValue="saas"
+            value={loginType}
+            onValueChange={(value) =>
+              setLoginType(value as "saas" | "self-hosted")
+            }
             className="grid grid-cols-2 gap-4 mb-8"
           >
             <div>
               <RadioGroupItem value="saas" id="saas" className="peer sr-only" />
               <Label
                 htmlFor="saas"
-                className="flex flex-col items-center justify-center rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+                className="flex flex-col items-center justify-center rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary"
               >
                 SAAS
               </Label>
@@ -94,50 +125,29 @@ export default function LoginPage() {
               />
               <Label
                 htmlFor="self-hosted"
-                className="flex flex-col items-center justify-center rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+                className="flex flex-col items-center justify-center rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary"
               >
                 Self Hosted
               </Label>
             </div>
           </RadioGroup>
 
+          {/* Login Options */}
           <div className="space-y-4">
-            <button className="flex items-center justify-center w-full gap-2 p-3 border rounded-lg hover:bg-accent">
-              <Image
-                src="/github.png"
-                alt="GitHub Logo"
-                width={20}
-                height={20}
-              />
-              Sign in with GitHub
-            </button>
-            <button className="flex items-center justify-center w-full gap-2 p-3 border rounded-lg hover:bg-accent">
-              <Image
-                src="/bitbucket.png"
-                alt="Bitbucket Logo"
-                width={20}
-                height={20}
-              />
-              Sign in with Bitbucket
-            </button>
-            <button className="flex items-center justify-center w-full gap-2 p-3 border rounded-lg hover:bg-accent">
-              <Image
-                src="/azure.png"
-                alt="Azure DevOps Logo"
-                width={20}
-                height={20}
-              />
-              Sign in with Azure DevOps
-            </button>
-            <button className="flex items-center justify-center w-full gap-2 p-3 border rounded-lg hover:bg-accent">
-              <Image
-                src="/gitlab.png"
-                alt="GitLab Logo"
-                width={20}
-                height={20}
-              />
-              Sign in with GitLab
-            </button>
+            {loginOptions[loginType].map((option, index) => (
+              <button
+                key={index}
+                className="flex items-center justify-center w-full gap-2 p-3 border rounded-lg hover:bg-accent"
+              >
+                <Image
+                  src={option.src}
+                  alt={option.alt}
+                  width={20}
+                  height={20}
+                />
+                {option.text}
+              </button>
+            ))}
           </div>
 
           <p className="text-center text-sm text-muted-foreground">
