@@ -39,8 +39,8 @@ export default function LoginPage() {
             <Image
               src="/card-logo.png"
               alt="CodeAnt AI Logo"
-              width={50}
-              height={50}
+              width={24}
+              height={24}
               className="mb-2"
               priority
             />
@@ -106,18 +106,18 @@ export default function LoginPage() {
             onValueChange={(value) =>
               setLoginType(value as "saas" | "self-hosted")
             }
-            className="grid grid-cols-2 gap-4 mb-8"
+            className="flex gap-4 mb-8"
           >
-            <div>
+            <div className="flex-1">
               <RadioGroupItem value="saas" id="saas" className="peer sr-only" />
               <Label
                 htmlFor="saas"
-                className="flex flex-col items-center justify-center rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary"
+                className="flex items-center justify-center w-full p-3 text-sm font-medium border rounded-md peer-data-[state=checked]:bg-blue-600 peer-data-[state=checked]:text-white peer-data-[state=checked]:border-blue-600 hover:bg-blue-100"
               >
                 SAAS
               </Label>
             </div>
-            <div>
+            <div className="flex-1">
               <RadioGroupItem
                 value="self-hosted"
                 id="self-hosted"
@@ -125,7 +125,7 @@ export default function LoginPage() {
               />
               <Label
                 htmlFor="self-hosted"
-                className="flex flex-col items-center justify-center rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary"
+                className="flex items-center justify-center w-full p-3 text-sm font-medium border rounded-md peer-data-[state=checked]:bg-blue-600 peer-data-[state=checked]:text-white peer-data-[state=checked]:border-blue-600 hover:bg-blue-100"
               >
                 Self Hosted
               </Label>
