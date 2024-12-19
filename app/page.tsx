@@ -7,16 +7,16 @@ import Link from "next/link";
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen grid md:grid-cols-2 gap-8 p-4 md:p-8">
+    <div className="min-h-screen grid md:grid-cols-2 gap-8 py-4 md:p-8">
       {/* Stats Section */}
-      <div className="flex items-center justify-center">
+      <div>
         <div className="space-y-8">
           <div className="bg-white rounded-2xl p-6 shadow-lg">
             <Image
-              src="/placeholder.svg"
+              src="/card-logo.png"
               alt="CodeAnt AI Logo"
-              width={32}
-              height={32}
+              width={16}
+              height={16}
               className="mb-2"
             />
             <h2 className="font-semibold mb-4">
@@ -49,18 +49,23 @@ export default function LoginPage() {
             <div className="text-sm text-muted-foreground">Issues Fixed</div>
             <div className="text-2xl font-bold">500K+</div>
           </div>
+          <Image
+            src="/footer.png"
+            width={100}
+            height={100}
+            alt="CodeAnt AI Logo"
+          />
         </div>
       </div>
 
-      {/* Login Section */}
       <div className="flex items-center justify-center">
         <div className="w-full max-w-md space-y-8">
           <div className="text-center">
             <Image
-              src="/placeholder.svg"
+              src="/header.png"
               alt="CodeAnt AI Logo"
-              width={48}
-              height={48}
+              width={100}
+              height={100}
               className="mx-auto mb-4"
             />
             <h1 className="text-2xl font-semibold mb-8">
@@ -99,7 +104,7 @@ export default function LoginPage() {
           <div className="space-y-4">
             <button className="flex items-center justify-center w-full gap-2 p-3 border rounded-lg hover:bg-accent">
               <Image
-                src="/placeholder.svg"
+                src="/github.png"
                 alt="GitHub Logo"
                 width={20}
                 height={20}
@@ -108,7 +113,7 @@ export default function LoginPage() {
             </button>
             <button className="flex items-center justify-center w-full gap-2 p-3 border rounded-lg hover:bg-accent">
               <Image
-                src="/placeholder.svg"
+                src="/bitbucket.png"
                 alt="Bitbucket Logo"
                 width={20}
                 height={20}
@@ -117,7 +122,7 @@ export default function LoginPage() {
             </button>
             <button className="flex items-center justify-center w-full gap-2 p-3 border rounded-lg hover:bg-accent">
               <Image
-                src="/placeholder.svg"
+                src="/azure.png"
                 alt="Azure DevOps Logo"
                 width={20}
                 height={20}
@@ -126,7 +131,7 @@ export default function LoginPage() {
             </button>
             <button className="flex items-center justify-center w-full gap-2 p-3 border rounded-lg hover:bg-accent">
               <Image
-                src="/placeholder.svg"
+                src="/gitlab.png"
                 alt="GitLab Logo"
                 width={20}
                 height={20}

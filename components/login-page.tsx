@@ -1,14 +1,13 @@
-'use client'
+"use client";
 
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Label } from "@/components/ui/label"
-import Image from "next/image"
-import Link from "next/link"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function LoginPage() {
   return (
     <div className="min-h-screen grid md:grid-cols-2 gap-8 p-4 md:p-8">
-      {/* Stats Section */}
       <div className="flex items-center justify-center">
         <div className="space-y-8">
           <div className="bg-white rounded-2xl p-6 shadow-lg">
@@ -19,11 +18,15 @@ export default function LoginPage() {
               height={32}
               className="mb-2"
             />
-            <h2 className="font-semibold mb-4">AI to Detect & Autofix Bad Code</h2>
+            <h2 className="font-semibold mb-4">
+              AI to Detect & Autofix Bad Code
+            </h2>
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <div className="font-bold">30+</div>
-                <div className="text-sm text-muted-foreground">Language Support</div>
+                <div className="text-sm text-muted-foreground">
+                  Language Support
+                </div>
               </div>
               <div>
                 <div className="font-bold">10K+</div>
@@ -48,7 +51,6 @@ export default function LoginPage() {
         </div>
       </div>
 
-      {/* Login Section */}
       <div className="flex items-center justify-center">
         <div className="w-full max-w-md space-y-8">
           <div className="text-center">
@@ -59,16 +61,17 @@ export default function LoginPage() {
               height={48}
               className="mx-auto mb-4"
             />
-            <h1 className="text-2xl font-semibold mb-8">Welcome to CodeAnt AI</h1>
+            <h1 className="text-2xl font-semibold mb-8">
+              Welcome to CodeAnt AI
+            </h1>
           </div>
 
-          <RadioGroup defaultValue="saas" className="grid grid-cols-2 gap-4 mb-8">
+          <RadioGroup
+            defaultValue="saas"
+            className="grid grid-cols-2 gap-4 mb-8"
+          >
             <div>
-              <RadioGroupItem
-                value="saas"
-                id="saas"
-                className="peer sr-only"
-              />
+              <RadioGroupItem value="saas" id="saas" className="peer sr-only" />
               <Label
                 htmlFor="saas"
                 className="flex flex-col items-center justify-center rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
@@ -139,6 +142,5 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
